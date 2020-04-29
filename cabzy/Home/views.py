@@ -103,6 +103,16 @@ def booking(request):
     cars = Car.objects.get(id = rides.car_id)
     return render(request, 'booking.html', {'rides': rides, 'cars' : cars})
 
+    
+def cancelride(request):
+    rides = ride.objects.latest('id')
+    rides.delete()
+    return redirect('/bookcab')
+
+
+
+
+
 def edit(request):
     rides = ride.objects.latest('id')
 
