@@ -94,17 +94,30 @@
 										Car Number : {{cars.car_number}}
 									</li>
 									<li> Car Model : {{ cars.car_model}}</li>
+
+									<br>
+									<div class="col-md-12">
+										<a href="/cancelride" class="btn btn-primary">Cancel Ride</a>
+									   </div>
 									
 									{% endif %}
 									{% if rides.is_approved == "denied"  %}
 
 									<h3>  {{cars.driver}} is not Accepting this Ride. Please Book Another Cab</h3>
+									<br>
+									<div class="col-md-12">
+										<a href="/cancelride" class="btn btn-primary">Cancel Ride</a>
+									   </div>
 									
 									{% endif %}
 
 									{% if rides.is_approved == "not_confirmed"  %}
 
 									<h3>  {{cars.driver}} will confirm this ride soon</h3>
+									<br>
+									<div class="col-md-12">
+										<a href="/cancelride" class="btn btn-primary">Cancel Ride</a>
+									   </div>
 									
 									
 									{% endif %}
