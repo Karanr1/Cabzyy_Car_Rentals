@@ -97,18 +97,21 @@
 									<form method="POST">
 										{% csrf_token %}
 										<h4 class="text-white pb-30">Ride Status</h4>
-										<select id="profession" name="is_approved">
+										<select id="profession" name="is_approved" >
+										<option value=''>-------</option>
 										 <option value='approved'>Approve</option>
 										 <option value="denied">Decline</option>
 										 <option value="not_confirmed">Not Confirmed</option>
-										 </select>
+										</select>
+										 <select id="is_running" name="is_running">
+											<option value='False'>End Ride</option>
+											<option value='True'>Start Ride</option>
+										</select>
+
 										 <input type = "submit"/>
-										 <h4 class="text-white pb-30">Ride Status</h4>
-										<select id="is_running" name="is_running">
-										 <option value='False'>End Ride</option>
 										 
-										 </select>
-										 <input type = "submit"/>
+
+									</form>	 
 								</div>
 				</div>
 				

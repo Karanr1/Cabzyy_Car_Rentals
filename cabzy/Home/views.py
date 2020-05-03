@@ -79,6 +79,7 @@ def bookcab(request):
         instance = form.save(commit = False)
         instance.user = request.user
         instance.car = Car.objects.filter(car_type = instance.car_type).filter(is_available = True)[0]
+        instance.completed = False
         instance.save()
         return redirect('/booking')
     context = {
@@ -126,11 +127,19 @@ def edit(request):
         if x.is_approved == 'approved':
             y.is_available = False
             y.is_running = True
+            x.completed = False
+            x.save()
+            y.save()
+            return HttpResponse('DONEDONEDONEDONE')
         y.is_running = request.POST['is_running']
-        if y.is_running == request.POST['is_running']:
-            y.is_available = True
-            x.completed = True       
-        x.save()
-        y.save()
 
-        return HttpResponse('DONEDONEDONEDONE')
+        if y.is_running == request.POST['is_running']:
+            x.completed = True
+            y.is_available = True
+            x.save()
+            y.save()  
+            return HttpResponse('HAANOK')
+        
+       
+
+        
